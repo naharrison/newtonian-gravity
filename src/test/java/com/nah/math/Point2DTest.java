@@ -13,4 +13,10 @@ public class Point2DTest {
 		assertEquals(p2.getDistance(p1), 5.0, 1e-6);
 	}
 
+	@Test
+	public void testGetRadius() {
+		Point2D p1 = new Point2D(3.0, 4.0);
+		assertEquals(p1.getRadius(), 5.0, 1e-6);
+	}
+
 }
