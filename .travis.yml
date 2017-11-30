@@ -1,0 +1,19 @@
+---
+language: java
+
+jdk:
+- oraclejdk8
+
+before_install:
+  - ls -lthra
+  - java -version
+  - echo "starting build..."
+
+install:
+  - mvn install
+
+script:
+  - echo "some more stuff..."
+
+notifications:
+  emails: false
