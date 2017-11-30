@@ -1,2 +1,2 @@
-# newtonian-gravity [![Build Status](https://travis-ci.org/naharrison/newtonian-gravity.svg?branch=master)](https://travis-ci.org/naharrison/newtonian-gravity) [![Coverage Status](https://coveralls.io/repos/github/naharrison/newtonian-gravity/badge.svg?branch=master)](https://coveralls.io/github/naharrison/newtonian-gravity?branch=master)
-A practice repo of basic physics for testing Maven, Travis CI, JUnit, SpotBugs, and Coveralls.
+# newtonian-gravity [![Build Status](https://travis-ci.org/naharrison/newtonian-gravity.svg?branch=master)](https://travis-ci.org/naharrison/newtonian-gravity)
+A practice repo of basic physics for testing Maven, Travis CI, JUnit, SpotBugs, and code coverage tools.
