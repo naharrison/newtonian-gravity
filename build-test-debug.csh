@@ -1,6 +1,7 @@
 #!/bin/csh -f
 
 rm -rf ~/.m2
+rm -rf target
 
 mvn install
 
