@@ -9,14 +9,12 @@ public class Universe2D {
 	
 	public Universe2D() {
 		G = 6.67e-11;
+		masses = new ArrayList<>();
 	}
 	
 	public Universe2D(double G) {
 		this.G = G;
-	}
-	
-	public void setG(double G) {
-		this.G = G;
+		masses = new ArrayList<>();
 	}
 	
 	public void addMass(PointMass2D mass) {
