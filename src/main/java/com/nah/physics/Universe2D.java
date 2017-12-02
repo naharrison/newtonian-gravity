@@ -1,6 +1,7 @@
 package com.nah.physics;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import com.nah.math.Vector2D;
 
 public class Universe2D {
@@ -22,7 +23,7 @@ public class Universe2D {
 		masses.add(mass);
 	}
 
-	public Vector2D getForce(int imass) { // in progress
+	public Vector2D getForce(int imass) {
 		if(imass < 0 || imass >= masses.size()) return null;
 		double fx = 0.0;
 		double fy = 0.0;
@@ -33,6 +34,22 @@ public class Universe2D {
 			}
 		}
 		return new Vector2D(fx, fy);
+	}
+
+	/**
+	 * Vector2D.x = width of universe, Vector2D.y = height of universe
+	 */
+	public Vector2D getDimensions() {
+		if(masses.size() == 0 || masses.size() == 1) return new Vector2D(0.0, 0.0);
+		ArrayList<Double> xvals = new ArrayList<>();
+		ArrayList<Double> yvals = new ArrayList<>();
+		for(int k = 0; k < masses.size(); k++) {
+			xvals.add(masses.get(k).position.x);
+			yvals.add(masses.get(k).position.y);
+		}
+		Collections.sort(xvals);
+		Collections.sort(yvals);
+		return new Vector2D(xvals.get(masses.size()-1) - xvals.get(0), yvals.get(masses.size()-1) - yvals.get(0));
 	}
 
 }
