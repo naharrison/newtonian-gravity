@@ -3,6 +3,7 @@ package com.nah.physics;
 import java.util.ArrayList;
 import java.util.Collections;
 import com.nah.math.Vector2D;
+import com.nah.math.Dimensions2D;
 
 public class Universe2D {
 	
@@ -37,10 +38,10 @@ public class Universe2D {
 	}
 
 	/**
-	 * Vector2D.x = width of universe, Vector2D.y = height of universe
+	 * Returns xstart, xwidth, ystart, and ywidth in the form of a Dimensions2D
 	 */
-	public Vector2D getDimensions() {
-		if(masses.size() == 0 || masses.size() == 1) return new Vector2D(0.0, 0.0);
+	public Dimensions2D getDimensions() {
+		if(masses.size() == 0 || masses.size() == 1) return new Dimensions2D(0.0, 0.0, 0.0, 0.0);
 		ArrayList<Double> xvals = new ArrayList<>();
 		ArrayList<Double> yvals = new ArrayList<>();
 		for(int k = 0; k < masses.size(); k++) {
@@ -49,7 +50,7 @@ public class Universe2D {
 		}
 		Collections.sort(xvals);
 		Collections.sort(yvals);
-		return new Vector2D(xvals.get(masses.size()-1) - xvals.get(0), yvals.get(masses.size()-1) - yvals.get(0));
+		return new Dimensions2D(xvals.get(0), xvals.get(masses.size()-1) - xvals.get(0), yvals.get(0), yvals.get(masses.size()-1) - yvals.get(0));
 	}
 
 }
