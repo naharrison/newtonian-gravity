@@ -7,6 +7,7 @@ jdk:
 before_install:
   - ls -lthra
   - java -version
+  - export DISPLAY=localhost:0 # hopefully fixes travis from failing due to no X11 display
   - echo "starting build..."
 
 install:
