@@ -2,6 +2,7 @@ package com.nah.graphics;
 
 import javax.swing.*;
 import java.awt.*;
+import com.nah.math.Vector2D;
 import com.nah.physics.Universe2D;
 import com.nah.physics.PointMass2D;
 
@@ -32,6 +33,8 @@ public class VisibleUniverse extends JFrame {
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(Color.blue);
+
+		int index = 0;
 		for(PointMass2D mass : universe.masses) {
 			int radius = 10; // pixels
 			double xpixel = (mass.position.x - universe.getDimensions().xstart)/universe.getDimensions().xwidth;
@@ -40,8 +43,15 @@ public class VisibleUniverse extends JFrame {
 			ypixel = ypixel*(getHeight() - 2.0*marginSize) + marginSize;
 			ypixel = getHeight() - ypixel;
 			g.fillOval((int) (xpixel - Math.sqrt(2.0)*radius), (int) (ypixel - Math.sqrt(2.0)*radius), 2*radius, 2*radius); // to shift to center (instead of top left)
-			g.drawLine((int) xpixel, (int) ypixel, (int) xpixel, (int) (ypixel + 25));
+
+			// now draw force vectors
+			Vector2D force = universe.getForce(index);
+			double forcePixelLength = 40;
+			g.drawLine((int) xpixel, (int) ypixel, (int) (xpixel + forcePixelLength*force.x/force.getMagnitude()), (int) (ypixel - forcePixelLength*force.y/force.getMagnitude()));
+
+			index++;
 		}
+
 	}
 
 }
