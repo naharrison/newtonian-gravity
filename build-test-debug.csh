@@ -20,3 +20,10 @@ if($? != 0) then
 	exit 1
 endif
 
+cd ng-libs
+mvn package
+
+if($? != 0) then
+	echo "Crap! mvn package failed"
+	exit 1
+endif
